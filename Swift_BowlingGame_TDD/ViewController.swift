@@ -20,7 +20,9 @@ class ViewController: UIViewController {
 
 class Game {
     private var totalScore = 0;
-    private var rolls[]:Int = new Int[21];
+    private var rolls: [Int] = [21]
+    private var currentRoll:Int = 0;
+    
     
     func roll (knockedPins: Int) {
         totalScore += knockedPins

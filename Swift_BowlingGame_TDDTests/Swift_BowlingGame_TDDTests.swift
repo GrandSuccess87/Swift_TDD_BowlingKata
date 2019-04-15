@@ -42,7 +42,7 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
     
     func testAllOnes() {
         rollMany(n: 20, pins: 1)
-        XCTAssertEqual(game.score(), 20) 
+        XCTAssertEqual(game.score(), 20)
     }
 
     func testOneSpare(){
