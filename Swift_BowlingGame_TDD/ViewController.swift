@@ -30,9 +30,15 @@ class Game {
     func score () -> Int {
         var totalScore:Int = 0
 
-        for i in rolls {
-            totalScore+=rolls[i];
+        for _ in rolls {
+            totalScore += rolls[currentRoll]
         }
+//        totalScore += rolls[currentRoll];
+//        for i in stride(from: 0, to: 21, by: 1){
+//            totalScore += i;
+//            print(i)
+//        }
+        
         return totalScore;
 
         //        for i in rolls(from: 0, by: 1){
