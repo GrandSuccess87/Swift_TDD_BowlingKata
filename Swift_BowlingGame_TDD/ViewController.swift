@@ -19,16 +19,24 @@ class ViewController: UIViewController {
 }
 
 class Game {
-    private var totalScore = 0;
-    private var rolls: [Int] = [21]
+    private var rolls: [Int] = [21];
     private var currentRoll:Int = 0;
     
     
     func roll (knockedPins: Int) {
-        totalScore += knockedPins
+        rolls[currentRoll] = knockedPins
     }
     
     func score () -> Int {
-        return totalScore
+        var totalScore:Int = 0
+
+        for i in rolls {
+            totalScore+=rolls[i];
+        }
+        return totalScore;
+
+        //        for i in rolls(from: 0, by: 1){
+//            score += rolls[i]
+//        }
     }
 }

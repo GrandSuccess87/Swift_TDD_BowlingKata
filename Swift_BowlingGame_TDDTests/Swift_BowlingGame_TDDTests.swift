@@ -84,6 +84,7 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
         game.roll(knockedPins: 2)
         XCTAssertEqual(game.score(), 83)
     }
+    
 //    func testOneSpare(){
 //        game.roll(knockedPins: 5)
 //        game.roll(knockedPins: 5) // spare
