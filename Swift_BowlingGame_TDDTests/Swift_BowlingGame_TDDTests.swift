@@ -29,29 +29,68 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    private func rollMany(n:Int, pins:Int) {
+    private func rollMany(n:Int, pinsFallen:Int) {
         for _ in 1...n {
-            game.roll(knockedPins: pins)
+            game.roll(knockedPins: pinsFallen)
         }
     }
 
     func testGutterGame(){
-        rollMany(n: 20, pins: 0)
+        rollMany(n: 20, pinsFallen: 0)
         XCTAssertEqual(game.score(), 0)
     }
     
     func testAllOnes() {
-        rollMany(n: 20, pins: 1)
+        rollMany(n: 20, pinsFallen: 1)
         XCTAssertEqual(game.score(), 20)
     }
 
-    func testOneSpare(){
-        game.roll(knockedPins: 5)
-        game.roll(knockedPins: 5) // spare
+    func testAllTwoAndThree() {
+        game.roll(knockedPins: 2)
         game.roll(knockedPins: 3)
-        rollMany(n: 17, pins: 0)
-        XCTAssertEqual(game.score(), 16)
+        rollMany(n: 18, pinsFallen: 0)
+        XCTAssertEqual(game.score(), 5)
     }
+    
+    func testManyPins() {
+        game.roll(knockedPins: 2)
+        game.roll(knockedPins: 3)
+        game.roll(knockedPins: 4)
+        game.roll(knockedPins: 5)
+        rollMany(n: 16, pinsFallen: 0)
+        XCTAssertEqual(game.score(), 14)
+    }
+    
+    func testFullGame() {
+        game.roll(knockedPins: 6)
+        game.roll(knockedPins: 2)
+        game.roll(knockedPins: 5)
+        game.roll(knockedPins: 4)
+        game.roll(knockedPins: 3)
+        game.roll(knockedPins: 5)
+        game.roll(knockedPins: 7)
+        game.roll(knockedPins: 2)
+        game.roll(knockedPins: 8)
+        game.roll(knockedPins: 1)
+        game.roll(knockedPins: 9)
+        game.roll(knockedPins: 0)
+        game.roll(knockedPins: 3)
+        game.roll(knockedPins: 4)
+        game.roll(knockedPins: 6)
+        game.roll(knockedPins: 2)
+        game.roll(knockedPins: 8)
+        game.roll(knockedPins: 0)
+        game.roll(knockedPins: 6)
+        game.roll(knockedPins: 2)
+        XCTAssertEqual(game.score(), 83)
+    }
+//    func testOneSpare(){
+//        game.roll(knockedPins: 5)
+//        game.roll(knockedPins: 5) // spare
+//        game.roll(knockedPins: 3)
+//        rollMany(n: 17, pins: 0)
+//        XCTAssertEqual(game.score(), 16)
+//    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

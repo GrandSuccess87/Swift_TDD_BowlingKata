@@ -29,6 +29,6 @@ class Game {
     }
     
     func score () -> Int {
-        return 0
+        return totalScore
     }
 }
