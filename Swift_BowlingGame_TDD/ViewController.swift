@@ -23,14 +23,28 @@ class Game {
 
     func roll (knockedPins: Int) {
         rolls.append(knockedPins)
+
     }
     
     func score () -> Int {
         var totalScore:Int = 0
-
-        rolls.forEach { roll in
-            totalScore += roll
+        let frames: [Int] = [10]
+        
+        frames.forEach { frame in
+        
+        for(index, element) in rolls.enumerated() {
+            print("Item \(index): \(element)")
         }
+            for i in 0..<rolls.count {
+                totalScore += rolls[i]
+            }
+//            rolls.forEach { roll in
+//                totalScore += roll
+            
+//            }
+        }
+    
         return totalScore;
     }
 }
+

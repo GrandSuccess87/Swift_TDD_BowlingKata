@@ -89,7 +89,7 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
 //        game.roll(knockedPins: 5)
 //        game.roll(knockedPins: 5) // spare
 //        game.roll(knockedPins: 3)
-//        rollMany(n: 17, pins: 0)
+//        rollMany(n: 17, pinsFallen: 0)
 //        XCTAssertEqual(game.score(), 16)
 //    }
 
