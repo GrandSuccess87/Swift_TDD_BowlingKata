@@ -61,38 +61,43 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
         XCTAssertEqual(game.score(), 14)
     }
     
-//    func testFullGame() {
-//        game.roll(knockedPins: 6)
-//        game.roll(knockedPins: 2)
-//        game.roll(knockedPins: 5)
-//        game.roll(knockedPins: 4)
-//        game.roll(knockedPins: 3)
-//        game.roll(knockedPins: 5)
-//        game.roll(knockedPins: 7)
-//        game.roll(knockedPins: 2)
-//        game.roll(knockedPins: 8)
-//        game.roll(knockedPins: 1)
-//        game.roll(knockedPins: 9)
-//        game.roll(knockedPins: 0)
-//        game.roll(knockedPins: 3)
-//        game.roll(knockedPins: 4)
-//        game.roll(knockedPins: 6)
-//        game.roll(knockedPins: 2)
-//        game.roll(knockedPins: 8)
-//        game.roll(knockedPins: 0)
-//        game.roll(knockedPins: 6)
-//        game.roll(knockedPins: 2)
-//        XCTAssertEqual(game.score(), 83)
-//    }
+    func testFullGame() {
+        game.roll(knockedPins: 6)
+        game.roll(knockedPins: 2)
+        game.roll(knockedPins: 5)
+        game.roll(knockedPins: 4)
+        game.roll(knockedPins: 3)
+        game.roll(knockedPins: 5)
+        game.roll(knockedPins: 7)
+        game.roll(knockedPins: 2)
+        game.roll(knockedPins: 8)
+        game.roll(knockedPins: 1)
+        game.roll(knockedPins: 9)
+        game.roll(knockedPins: 0)
+        game.roll(knockedPins: 3)
+        game.roll(knockedPins: 4)
+        game.roll(knockedPins: 6)
+        game.roll(knockedPins: 2)
+        game.roll(knockedPins: 8)
+        game.roll(knockedPins: 0)
+        game.roll(knockedPins: 6)
+        game.roll(knockedPins: 2)
+        XCTAssertEqual(game.score(), 83)
+    }
     
     func testOneSpare(){
-        game.roll(knockedPins: 5)
-        game.roll(knockedPins: 5) // spare
+        rollSpare() // spare
         game.roll(knockedPins: 3)
         rollMany(n: 17, pinsFallen: 0)
         XCTAssertEqual(game.score(), 16)
     }
 
+    
+    private func rollSpare() {
+        game.roll(knockedPins: 5)
+        game.roll(knockedPins: 5)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

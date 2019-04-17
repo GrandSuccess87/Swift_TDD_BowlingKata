@@ -53,7 +53,6 @@ class Game {
             }
         }
         print("Frames: \(rolls)")
-
         return totalScore;
     }
 }
