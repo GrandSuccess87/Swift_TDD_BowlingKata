@@ -29,7 +29,6 @@ class Game {
     func score () -> Int {
         var totalScore:Int = 0
         var i:Int = 0
-//        let frames: [Int] = [10]
         let frames = [Int](1...10)
         frames.enumerated().forEach {print("Frames: ", $0, ":", $1)}
         for(index, element) in rolls.enumerated() {
@@ -39,11 +38,13 @@ class Game {
 //        var framesIterator:Int = 0
         
         for _ in 0..<frames.count {
-//        for i in 0..<rolls.count {
+            if(rolls[i] + rolls[i+1] == 10) {
+                totalScore += 10 + rolls[i+2]
+                i += 2
+            } else {
                 totalScore += rolls[i] + rolls[i+1]
                 i += 2
-            
-//            }
+            }
         }
         print("Frames: \(rolls)")
 
