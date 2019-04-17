@@ -100,6 +100,11 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
         XCTAssertEqual(game.score(), 24)
     }
     
+    func testPerfectGame() {
+        rollMany(n: 20, pinsFallen: 10)
+        XCTAssertEqual(game.score(), 300)
+    }
+    
     private func rollSpare() {
         game.roll(knockedPins: 5)
         game.roll(knockedPins: 5)
