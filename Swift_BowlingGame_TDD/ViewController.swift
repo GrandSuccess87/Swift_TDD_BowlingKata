@@ -40,7 +40,6 @@ class Game {
         
         //loop through the frames array
         for _ in 0..<frames.count {
-            
              //check if current index at i equals 10
             //strike
             if(rolls[frameIndex] == 10){
