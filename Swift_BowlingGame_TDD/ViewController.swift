@@ -22,28 +22,34 @@ class Game {
     private var rolls: [Int] = [];
 
     func roll (knockedPins: Int) {
+        //append knockedPins to the rolls array
         rolls.append(knockedPins)
 
     }
     
     func score () -> Int {
         var totalScore:Int = 0
-        var i:Int = 0
+        // rename i to frameIndex, better name for a variable
+//        var i:Int = 0
+        var frameIndex = 0
         let frames = [Int](1...10)
         frames.enumerated().forEach {print("Frames: ", $0, ":", $1)}
         for(index, element) in rolls.enumerated() {
             print("Item \(index): \(element)")
         }
         
-//        var framesIterator:Int = 0
-        
+        //loop through the frames array
         for _ in 0..<frames.count {
-            if(rolls[i] + rolls[i+1] == 10) {
-                totalScore += 10 + rolls[i+2]
-                i += 2
+            //check if current index at i = 0 plus the next one = 10
+            if(rolls[frameIndex] + rolls[frameIndex+1] == 10) {
+                //if true totalScore = 10
+                // 10 plus the next roll in the rolls iteration
+                totalScore += 10 + rolls[frameIndex+2]
+                frameIndex += 2 // i now starts 2 iterations over since I added i and i+1
             } else {
-                totalScore += rolls[i] + rolls[i+1]
-                i += 2
+                //if i and i+1 do not = 10 just add them and add to the totalScore
+                totalScore += rolls[frameIndex] + rolls[frameIndex+1]
+                frameIndex += 2 // i now starts 2 iterations over since I added i and i+1
             }
         }
         print("Frames: \(rolls)")
