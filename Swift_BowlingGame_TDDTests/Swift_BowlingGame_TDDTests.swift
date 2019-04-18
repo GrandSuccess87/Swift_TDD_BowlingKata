@@ -45,14 +45,14 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
         rollMany(n: 20, pinsFallen: 1)
         XCTAssertEqual(game.score(), 20)
     }
-//
-//    func testOneSpare() {
-//        game.roll(knockedPins: 5)
-//        game.roll(knockedPins: 5)
-//        game.roll(knockedPins: 3)
-//        rollMany(n: 17, pinsFallen: 0)
-//        XCTAssertEqual(game.score(), 16)
-//    }
+
+    func testOneSpare() {
+        game.roll(knockedPins: 5)
+        game.roll(knockedPins: 5)
+        game.roll(knockedPins: 3)
+        rollMany(n: 17, pinsFallen: 0)
+        XCTAssertEqual(game.score(), 16)
+    }
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
