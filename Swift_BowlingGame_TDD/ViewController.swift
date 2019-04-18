@@ -14,19 +14,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 
 class Game {
-    
     private var totalScore:Int = 0
-    
-    func roll(knockedPins:Int) {
+    func roll (knockedPins:Int) {
         totalScore += knockedPins
     }
-    
-    func score() -> Int {
+    func score () -> Int {
         return totalScore
     }
 }
