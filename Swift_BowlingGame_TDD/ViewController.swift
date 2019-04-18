@@ -17,11 +17,23 @@ class ViewController: UIViewController {
 }
 
 class Game {
-    private var totalScore:Int = 0
+    private var rolls:[Int] = []
+    
     func roll (knockedPins:Int) {
-        totalScore += knockedPins
+        rolls.append(knockedPins)
     }
-    func score () -> Int {
-        return totalScore
+    
+    func score() -> Int {
+        var totalScore:Int = 0
+        var i:Int = 0
+        let frames = [Int](1...10)
+
+        for _ in 0..<frames.count{
+            rolls.forEach{roll in
+                totalScore += roll
+            }
+        }
+
+    return totalScore
     }
 }
