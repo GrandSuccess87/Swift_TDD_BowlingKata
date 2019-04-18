@@ -29,7 +29,7 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
     }
     
     private func rollMany(n:Int, pinsFallen:Int) {
-        for _ in 0..<n {
+        for _ in 1...n {
             game.roll(knockedPins:pinsFallen)
         }
     }
