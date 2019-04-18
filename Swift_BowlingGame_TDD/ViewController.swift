@@ -19,66 +19,14 @@ class ViewController: UIViewController {
 }
 
 class Game {
-    private var rolls: [Int] = [];
-
-    func roll (knockedPins: Int) {
-        //append knockedPins to the rolls array
-        rolls.append(knockedPins)
-
+    
+    private var totalScore:Int = 0
+    
+    func roll(knockedPins:Int) {
+        totalScore += knockedPins
     }
     
-    func score () -> Int {
-        var totalScore:Int = 0
-        // rename i to frameIndex, better name for a variable
-//        var i:Int = 0
-        var frameIndex = 0
-        let frames = [Int](1...10)
-        frames.enumerated().forEach {print("Frames: ", $0, ":", $1)}
-        for(index, element) in rolls.enumerated() {
-            print("Item \(index): \(element)")
-        }
-        
-        //loop through the frames array
-        for _ in 0..<frames.count {
-             //check if current index at i equals 10
-            //strike
-            if(rolls[frameIndex] == 10){
-                totalScore += 10 + strikeBonus(frameIndex: frameIndex)
-                    frameIndex+=1
-            }
-            //check if current index at i = 0 plus the next one equals 10
-             else if(isSpare(frameIndex:frameIndex)) {
-                //if true totalScore = 10
-                // 10 plus the next roll in the rolls iteration
-                totalScore += 10 + spareBonus(frameIndex: frameIndex)
-                frameIndex += 2 // i now starts 2 iterations over since I added i and i+1
-            } else {
-                //if i and i+1 do not = 10 just add them and add to the totalScore
-                totalScore += sumOfBallsInFrame(frameIndex:frameIndex)
-                frameIndex += 2 // i now starts 2 iterations over since I added i and i+1
-            }
-        }
-        print("Frames: \(rolls)")
-        return totalScore;
+    func score() -> Int {
+        return totalScore
     }
-    
-    private func strikeBonus(frameIndex:Int)->Int{
-        return rolls[frameIndex+1] + rolls[frameIndex+2]
-    }
-    
-    private func spareBonus(frameIndex:Int)->Int{
-        return rolls[frameIndex+2]
-    }
-    
-    private func sumOfBallsInFrame(frameIndex:Int)->Int{
-        return rolls[frameIndex] + rolls[frameIndex+1]
-    }
-    
-    private func isSpare(frameIndex:Int)->Bool{
-        return rolls[frameIndex] + rolls[frameIndex+1] == 10
-    }
-//    private int strikeBonus(int frameIndex) {
-//    return rolls[frameIndex+1]+rolls[frameIndex+2];
-//    }
 }
-
