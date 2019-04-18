@@ -43,7 +43,7 @@ class Game {
              //check if current index at i equals 10
             //strike
             if(rolls[frameIndex] == 10){
-                totalScore += 10 + rolls[frameIndex+1] + rolls[frameIndex+2]
+                totalScore += 10 + strikeBonus(frameIndex: frameIndex)
                     frameIndex+=1
             }
             //check if current index at i = 0 plus the next one equals 10
@@ -61,5 +61,13 @@ class Game {
         print("Frames: \(rolls)")
         return totalScore;
     }
+    func strikeBonus(frameIndex:Int)->Int{
+        return rolls[frameIndex+1] + rolls[frameIndex+2]
+//        return "Hello \(foo)"
+    }
+    
+//    private int strikeBonus(int frameIndex) {
+//    return rolls[frameIndex+1]+rolls[frameIndex+2];
+//    }
 }
 
