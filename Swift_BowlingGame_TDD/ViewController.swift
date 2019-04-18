@@ -17,16 +17,17 @@ class ViewController: UIViewController {
 }
 
 class Game {
-    let frames = [Int](1...10)
-    var rolls:[Int] = []
     
-    func roll (knockedPins:Int) {
+    var rolls:[Int] = []
+    let frames = [Int](1...10)
+    
+    func roll(knockedPins:Int) {
         rolls.append(knockedPins)
     }
     
     func score() -> Int {
-        var i:Int = 0
         var totalScore:Int = 0
+        var i:Int = 0
         
         for _ in 0..<frames.count {
             if(rolls[i] == 10) {
@@ -35,16 +36,49 @@ class Game {
             }
             else if(rolls[i] + rolls[i+1] == 10) {
                 totalScore += 10 + rolls[i+2]
-                i += 2
+                i+=2
             } else {
                 totalScore += rolls[i] + rolls[i+1]
                 i+=2
+
             }
         }
         return totalScore
     }
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //class Game {
 //    private var rolls:[Int] = []

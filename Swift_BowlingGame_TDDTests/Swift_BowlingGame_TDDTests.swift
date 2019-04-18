@@ -13,7 +13,6 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
     var game: Game!
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
         super.setUp()
         game = Game()
 
@@ -36,6 +35,7 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
             game.roll(knockedPins:pinsFallen)
         }
     }
+
     func testGutterGame() {
         rollMany(n: 20, pinsFallen: 0)
         XCTAssertEqual(game.score(), 0)
@@ -45,7 +45,7 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
         rollMany(n: 20, pinsFallen: 1)
         XCTAssertEqual(game.score(), 20)
     }
-
+    
     func testOneSpare() {
         game.roll(knockedPins: 5)
         game.roll(knockedPins: 5)
@@ -55,13 +55,18 @@ class Swift_BowlingGame_TDDTests: XCTestCase {
     }
     
     func testOneStrike() {
-        game.roll(knockedPins:10)
+        game.roll(knockedPins: 10)
         game.roll(knockedPins: 3)
         game.roll(knockedPins: 4)
-        rollMany(n: 16, pinsFallen: 0)
+        rollMany(n: 17, pinsFallen: 0)
         XCTAssertEqual(game.score(), 24)
-        
     }
+    
+    func testPerfectGame() {
+        rollMany(n: 20, pinsFallen: 10)
+        XCTAssertEqual(game.score(), 300)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
